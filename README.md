@@ -1,89 +1,157 @@
-# Course Management Backend
+# Course Management Application
 
-Express.js backend with MongoDB for the Course Management application.
+A simple MERN stack application (MongoDB, Express, React, Node.js) that allows users to register, log in, and manage courses. The app is organized into **backend** and **frontend** folders for clarity.
 
-## Features
+---
 
-- 🔐 JWT Authentication (Register, Login, Logout)
-- 📚 Course CRUD Operations
-- 📝 Course Enrollment & Progress Tracking
-- ✅ Input Validation
-- 🔒 Protected Routes
+## Objective
 
-## Setup
+Implement a full-stack application with the following modules:
 
-1. **Install Dependencies**
-   ```bash
-   cd backend
-   npm install
-   ```
+- **Register**: New user registration with validations and hashed passwords.
+- **Login**: User authentication with JWT tokens.
+- **Courses CRUD**: Create, Read, Update, Delete courses with proper validations.
+## 📸 Application Preview
 
-2. **Configure Environment**
-   ```bash
-   cp .env.example .env
-   ```
-   
-   Edit `.env` with your settings:
-   - `MONGODB_URI`: Your MongoDB connection string
-   - `JWT_SECRET`: A strong secret key for JWT
-   - `FRONTEND_URL`: Your frontend URL for CORS
+### Course Management Application Page
+![Course Management Application](https://res.cloudinary.com/dp8gu4t9m/image/upload/v1767546016/Screenshot_2026-01-04_214647_wlox2q.png)
+---
 
-3. **Start MongoDB**
-   Make sure MongoDB is running locally or use MongoDB Atlas.
+## Folder Structure
 
-4. **Run the Server**
-   ```bash
-   # Development
-   npm run dev
-   
-   # Production
-   npm start
-   ```
+```
+Course-Management-Application/
+├─ backend/ # Node.js + Express API
+├─ frontend/ # React application
+└─ README.md
+```
 
-## API Endpoints
+## ✨ Features
+
+| Feature | Description |
+|---------|-------------|
+| 👤 User Registration | Register a new user with validation and hashed passwords |
+| 🔑 Login & JWT Auth | Secure login with JWT authentication |
+| 📚 Courses CRUD | Create, Read, Update, Delete courses |
+| 🧾 Validation | Input validation for email, password, and course fields |
+
+---
+
+## 🛠 Tech Stack
+
+**Frontend:**
+
+- React 18
+- React Router v6
+- React Query
+- React Hook Form
+- Tailwind CSS
+- Zod (validation)
+- Lucide Icons
+
+**Backend:**
+
+- Node.js
+- Express.js
+- MongoDB
+- Mongoose
+- JWT (authentication)
+- bcryptjs (password hashing)
+- CORS
+
+---
+
+---
+
+## 🚀 Getting Started
+
+### Prerequisites
+- Node.js v18+
+- MongoDB (local or Atlas)
+- npm
+## Installation
+
+### 1. Clone the repository
+
+git clone <YOUR_GIT_URL>
+cd course-management-app
+
+---
+
+### 2. Backend Setup
+
+cd backend
+npm install
+
+Create a .env file inside the backend folder and add:
+
+PORT=5000
+MONGO_URI=mongodb://localhost:27017/course_management
+JWT_SECRET=your_jwt_secret
+
+Start the backend server:
+
+npm run dev
+
+Backend runs on:
+http://localhost:5000
+
+---
+
+### 3. Frontend Setup
+
+cd ../frontend
+npm install
+npm run dev
+
+Frontend runs on:
+http://localhost:5173
+
+---
+
+## API Reference
 
 ### Authentication
-| Method | Endpoint | Description | Auth |
-|--------|----------|-------------|------|
-| POST | `/api/auth/register` | Register new user | No |
-| POST | `/api/auth/login` | Login user | No |
-| POST | `/api/auth/logout` | Logout user | Yes |
-| GET | `/api/auth/me` | Get current user | Yes |
+
+| Method | Endpoint             | Description         | Protected |
+|------|---------------------|--------------------|-----------|
+| POST | /api/auth/register  | Register user      | No        |
+| POST | /api/auth/login     | Login user         | No        |
+| GET  | /api/auth/profile   | Get user profile   | Yes       |
+
+---
 
 ### Courses
-| Method | Endpoint | Description | Auth |
-|--------|----------|-------------|------|
-| GET | `/api/courses` | Get all courses | No |
-| POST | `/api/courses` | Create course | Yes |
-| GET | `/api/course/:id` | Get single course | No |
-| PUT | `/api/course/:id` | Update course | Yes |
-| DELETE | `/api/course/:id` | Delete course | Yes |
 
-### Enrollments
-| Method | Endpoint | Description | Auth |
-|--------|----------|-------------|------|
-| GET | `/api/enrollments` | Get user enrollments | Yes |
-| POST | `/api/enrollments/:courseId` | Enroll in course | Yes |
-| GET | `/api/enrollments/:courseId` | Get enrollment status | Yes |
-| PUT | `/api/enrollments/:courseId/progress` | Update progress | Yes |
-| DELETE | `/api/enrollments/:courseId` | Unenroll from course | Yes |
+| Method | Endpoint             | Description          | Protected |
+|------|---------------------|----------------------|-----------|
+| GET  | /api/courses        | Get all courses     | No        |
+| GET  | /api/course/:id     | Get single course   | No        |
+| POST | /api/courses        | Create course       | Yes       |
+| PUT  | /api/course/:id     | Update course       | Yes       |
+| DELETE | /api/course/:id   | Delete course       | Yes       |
 
-## Query Parameters (GET /api/courses)
+---
 
-- `category`: Filter by category
-- `level`: Filter by level (beginner, intermediate, advanced)
-- `search`: Search in name and description
-- `sort`: Sort field (prefix with `-` for descending)
+## Authentication
 
-Example: `/api/courses?level=beginner&sort=-price`
+For protected routes, include the JWT token in the request header:
 
-## Models
+Authorization: Bearer <your_token>
 
-### User
-- name, email, password, role (user/instructor/admin)
+---
 
-### Course
-- name, description, instructor, duration, level, category, price, thumbnail, totalLessons
+## Tech Stack
 
-### Enrollment
-- user, course, status, progress, completedLessons, enrolledAt, completedAt
+Frontend: React, Vite, Axios  
+Backend: Node.js, Express  
+Database: MongoDB  
+Authentication: JWT
+
+---
+
+## Notes
+
+- Make sure MongoDB is running before starting the backend.
+- Register and login to obtain a JWT token.
+- Use the token to access protected endpoints.
