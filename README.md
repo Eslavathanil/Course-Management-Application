@@ -1,6 +1,9 @@
 # Course Management Application
 
 A simple MERN stack application (MongoDB, Express, React, Node.js) that allows users to register, log in, and manage courses. The app is organized into **backend** and **frontend** folders for clarity.
+## Live Demo
+
+Check out the live web app here: [Course Management Application](https://course-management-application-2.onrender.com/)
 
 ---
 
