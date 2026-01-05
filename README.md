@@ -19,7 +19,7 @@ Implement a full-stack application with the following modules:
 ## 📸 Application Preview
 
 ### Course Management Application Page
-![Course Management Application](https://res.cloudinary.com/dp8gu4t9m/image/upload/v1767546016/Screenshot_2026-01-04_214647_wlox2q.png)
+![Course Management Application](https://res.cloudinary.com/dp8gu4t9m/image/upload/v1767585633/Screenshot_2026-01-05_092646_cx5wh9.png)
 ---
 
 ## Folder Structure
